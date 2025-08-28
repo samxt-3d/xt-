@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Email - XT 3D Projects</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <div class="logo-icons">
+                    <i class="fas fa-cube logo-icon"></i>
+                    <i class="fas fa-drafting-compass logo-icon"></i>
+                </div>
+                <h1>XT 3D Projects</h1>
+                <p>Test Email System</p>
+                <div class="logo-icons">
+                    <i class="fas fa-print logo-icon"></i>
+                    <i class="fas fa-tools logo-icon"></i>
+                </div>
+            </div>
+            <nav class="nav">
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-home"></i> Retour au Site</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="category-header">
+        <div class="container">
+            <div class="category-intro">
+                <i class="fas fa-envelope category-icon"></i>
+                <h1>Test du Système d'Email</h1>
+                <p>Testez l'envoi automatique d'emails depuis votre site web</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="category-showcase">
+        <div class="container">
+            <div class="test-info">
+                <h3><i class="fas fa-info-circle"></i> Instructions de Test</h3>
+                <div class="info-box">
+                    <h4>📧 Ce que vous allez tester :</h4>
+                    <ul>
+                        <li>Envoi automatique d'email à <strong>samxt37@gmail.com</strong></li>
+                        <li>Validation des champs du formulaire</li>
+                        <li>Messages de succès/erreur</li>
+                        <li>Traitement des données du formulaire</li>
+                    </ul>
+                </div>
+
+                <div class="info-box warning">
+                    <h4>⚠️ Important :</h4>
+                    <ul>
+                        <li>Si les emails n'arrivent pas, vérifiez vos IDs EmailJS</li>
+                        <li>Consultez la console du navigateur (F12) pour les erreurs</li>
+                        <li>Vérifiez votre boîte email (y compris les spams)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <form class="contact-form test-form" id="testOrderForm">
+                <h3><i class="fas fa-paper-plane"></i> Formulaire de Test</h3>
+
+                <div class="form-group">
+                    <label for="test-name">Nom *</label>
+                    <input type="text" id="test-name" name="name" value="Test Client" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="test-email">Email *</label>
+                    <input type="email" id="test-email" name="email" value="test@example.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="test-project">Type de Projet</label>
+                    <select id="test-project" name="project">
+                        <option value="Test Commande">Test Commande</option>
+                        <option value="Prototypes Fonctionnels">Prototypes Fonctionnels</option>
+                        <option value="Modèles Miniatures">Modèles Miniatures</option>
+                        <option value="Autre">Autre</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="test-description">Description *</label>
+                    <textarea id="test-description" name="description" rows="4" required>Ceci est un test du système d'email automatique. Si vous recevez cet email, le système fonctionne parfaitement !</textarea>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-paper-plane"></i> Envoyer Email de Test
+                    </button>
+                    <button type="button" class="btn btn-secondary" onclick="resetTestForm()">
+                        <i class="fas fa-undo"></i> Réinitialiser
+                    </button>
+                </div>
+            </form>
+
+            <div class="test-results">
+                <h3><i class="fas fa-chart-line"></i> Résultats du Test</h3>
+                <div class="result-box" id="testResult">
+                    <p><i class="fas fa-clock"></i> En attente de test...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
+        // Initialize EmailJS
+        (function() {
+            emailjs.init("61Rz4pNz7NnOzC5Ig");
+        })();
+
+        // Test form submission
+        document.getElementById('testOrderForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const formData = new FormData(this);
+            const orderData = {
+                name: formData.get('name'),
+                email: formData.get('email'),
+                project: formData.get('project'),
+                description: formData.get('description')
+            };
+
+            // Update result box
+            const resultBox = document.getElementById('testResult');
+            resultBox.innerHTML = '<p><i class="fas fa-spinner fa-spin"></i> Envoi en cours...</p>';
+            resultBox.className = 'result-box loading';
+
+            // Prepare email template parameters
+            const templateParams = {
+                from_name: orderData.name,
+                from_email: orderData.email,
+                to_email: 'samxt37@gmail.com',
+                project_type: orderData.project,
+                project_description: orderData.description,
+                reply_to: orderData.email,
+                subject: `TEST - Nouvelle commande 3D - ${orderData.name}`
+            };
+
+            // Send email using EmailJS
+            emailjs.send('service_9zhgup4', 'template_qoh446q', templateParams)
+                .then(function(response) {
+                    console.log('Test email sent successfully:', response);
+                    resultBox.innerHTML = `
+                        <h4><i class="fas fa-check-circle"></i> Test Réussi !</h4>
+                        <p>Email envoyé avec succès à <strong>samxt37@gmail.com</strong></p>
+                        <p><strong>Réponse du serveur :</strong> ${response.text}</p>
+                        <p><em>Vérifiez votre boîte email maintenant !</em></p>
+                    `;
+                    resultBox.className = 'result-box success';
+                })
+                .catch(function(error) {
+                    console.error('Test email failed:', error);
+                    resultBox.innerHTML = `
+                        <h4><i class="fas fa-exclamation-triangle"></i> Erreur de Test</h4>
+                        <p>Impossible d'envoyer l'email. Erreur : ${error.text || 'Erreur inconnue'}</p>
+                        <p><strong>Solutions :</strong></p>
+                        <ul>
+                            <li>Vérifiez vos IDs EmailJS</li>
+                            <li>Consultez la console du navigateur (F12)</li>
+                            <li>Vérifiez votre connexion internet</li>
+                        </ul>
+                    `;
+                    resultBox.className = 'result-box error';
+                });
+        });
+
+        function resetTestForm() {
+            document.getElementById('testOrderForm').reset();
+            const resultBox = document.getElementById('testResult');
+            resultBox.innerHTML = '<p><i class="fas fa-clock"></i> En attente de test...</p>';
+            resultBox.className = 'result-box';
+        }
+    </script>
+
+    <style>
+        .test-info {
+            margin-bottom: 3rem;
+        }
+
+        .info-box {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            border-left: 4px solid #667eea;
+        }
+
+        .info-box.warning {
+            border-left-color: #ed8936;
+            background: #fef5e7;
+        }
+
+        .info-box h4 {
+            margin-top: 0;
+            color: #333;
+        }
+
+        .info-box ul {
+            margin: 0.5rem 0 0 0;
+            padding-left: 1.5rem;
+        }
+
+        .test-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+
+        .test-form h3 {
+            margin-top: 0;
+            color: #333;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .form-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .test-results {
+            margin-top: 2rem;
+        }
+
+        .result-box {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            border: 2px solid #e1e5e9;
+        }
+
+        .result-box.loading {
+            border-color: #667eea;
+            background: #eef2ff;
+        }
+
+        .result-box.success {
+            border-color: #38a169;
+            background: #f0fff4;
+        }
+
+        .result-box.error {
+            border-color: #e53e3e;
+            background: #fed7d7;
+        }
+
+        .result-box h4 {
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .result-box ul {
+            text-align: left;
+            margin: 1rem 0 0 0;
+            padding-left: 1.5rem;
+        }
+    </style>
+</body>
+</html>

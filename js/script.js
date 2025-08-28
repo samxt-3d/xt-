@@ -19,6 +19,11 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    // Initialize EmailJS
+    (function() {
+        emailjs.init("61Rz4pNz7NnOzC5Ig"); // Your EmailJS public key
+    })();
+
     // Form submission
     const orderForm = document.getElementById('orderForm');
     if (orderForm) {
@@ -37,38 +42,44 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // Validate required fields
             if (!orderData.name || !orderData.email || !orderData.description) {
-                alert('Veuillez remplir tous les champs obligatoires.');
+                showNotification('Veuillez remplir tous les champs obligatoires.', 'error');
                 return;
             }
 
-            // Create email content
-            const subject = `Nouvelle commande 3D - ${orderData.name}`;
-            const body = `
-Nouvelle commande reçue de XT 3D Projects
+            // Show loading state
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Envoi en cours...';
+            submitBtn.disabled = true;
 
-Informations du client :
-Nom : ${orderData.name}
-Email : ${orderData.email}
-Type de projet : ${orderData.project}
+            // Prepare email template parameters
+            const templateParams = {
+                from_name: orderData.name,
+                from_email: orderData.email,
+                to_email: 'samxt37@gmail.com',
+                project_type: orderData.project || 'Non spécifié',
+                project_description: orderData.description,
+                reply_to: orderData.email,
+                subject: `Nouvelle commande 3D - ${orderData.name}`
+            };
 
-Description du projet :
-${orderData.description}
-
-Cordialement,
-XT 3D Projects
-            `.trim();
-
-            // Create mailto link
-            const mailtoLink = `mailto:samxt37@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-
-            // Open email client
-            window.location.href = mailtoLink;
-
-            // Show success modal
-            showModal();
-
-            // Reset form
-            this.reset();
+            // Send email using EmailJS
+            emailjs.send('service_9zhgup4', 'template_qoh446q', templateParams)
+                .then(function(response) {
+                    console.log('Email sent successfully:', response);
+                    showNotification('Votre commande a été envoyée avec succès ! Nous vous contacterons dans les 24 heures.', 'success');
+                    showModal();
+                    orderForm.reset();
+                })
+                .catch(function(error) {
+                    console.error('Email sending failed:', error);
+                    showNotification('Erreur lors de l\'envoi. Veuillez réessayer ou nous contacter directement.', 'error');
+                })
+                .finally(function() {
+                    // Reset button state
+                    submitBtn.textContent = originalText;
+                    submitBtn.disabled = false;
+                });
 
             console.log('Commande soumise:', orderData);
         });
@@ -76,11 +87,45 @@ XT 3D Projects
 
     // Modal functions
     function showModal() {
-        modal.style.display = 'block';
+        if (modal) {
+            modal.style.display = 'block';
+        }
     }
 
     function closeModal() {
-        modal.style.display = 'none';
+        if (modal) {
+            modal.style.display = 'none';
+        }
+    }
+
+    // Notification system
+    function showNotification(message, type = 'info') {
+        // Remove existing notifications
+        const existingNotifications = document.querySelectorAll('.notification');
+        existingNotifications.forEach(notification => notification.remove());
+
+        // Create notification element
+        const notification = document.createElement('div');
+        notification.className = `notification notification-${type}`;
+        notification.innerHTML = `
+            <div class="notification-content">
+                <i class="fas ${type === 'success' ? 'fa-check-circle' : type === 'error' ? 'fa-exclamation-circle' : 'fa-info-circle'}"></i>
+                <span>${message}</span>
+            </div>
+            <button class="notification-close" onclick="this.parentElement.remove()">
+                <i class="fas fa-times"></i>
+            </button>
+        `;
+
+        // Add to page
+        document.body.appendChild(notification);
+
+        // Auto-remove after 5 seconds
+        setTimeout(() => {
+            if (notification.parentElement) {
+                notification.remove();
+            }
+        }, 5000);
     }
 
     // Close modal when clicking the close button

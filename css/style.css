@@ -1272,6 +1272,84 @@ html {
     margin-bottom: 2rem;
 }
 
+/* Notification System */
+.notification {
+    position: fixed;
+    top: 100px;
+    right: 20px;
+    min-width: 300px;
+    max-width: 500px;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    backdrop-filter: blur(10px);
+    animation: slideInRight 0.3s ease-out;
+}
+
+.notification-success {
+    background: linear-gradient(135deg, #38a169, #2f855a);
+    color: white;
+    border-left: 4px solid #22543d;
+}
+
+.notification-error {
+    background: linear-gradient(135deg, #e53e3e, #c53030);
+    color: white;
+    border-left: 4px solid #742a2a;
+}
+
+.notification-info {
+    background: linear-gradient(135deg, #3182ce, #2c5282);
+    color: white;
+    border-left: 4px solid #1a365d;
+}
+
+.notification-content {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+}
+
+.notification-content i {
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+.notification-content span {
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.notification-close {
+    background: none;
+    border: none;
+    color: inherit;
+    cursor: pointer;
+    padding: 5px;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+}
+
+.notification-close:hover {
+    opacity: 1;
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
 /* Apply animations */
 .project-card,
 .service-card,
