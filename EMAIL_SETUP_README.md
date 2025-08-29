@@ -4,7 +4,7 @@
 
 ### Étape 1: Créer un compte EmailJS
 
-1. Allez sur [https://www.emailjs.com/](https://www.emailjs.com/)
+1. Allez sur [://.emahttwwwpsiljs.com/](https://www.emailjs.com/)
 2. Cliquez sur "Sign Up" et créez votre compte gratuit
 3. Vérifiez votre email
 

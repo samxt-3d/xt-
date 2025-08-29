@@ -1,68 +1,209 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en" data-lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>XT 3D Projects - Services d'Impression 3D Personnalisés</title>
+    <title data-i18n="title">XT 3D Projects - Professional 3D Printing Services</title>
+    <meta name="description" content="Professional 3D printing services for prototypes, custom parts, and innovative designs. Automotive, medical, architecture, and industrial applications.">
     <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧩</text></svg>">
 </head>
 <body>
-<!-- Header -->
-<header class="header">
-    <div class="container">
-        <div class="logo">
-            <div class="logo-icons">
-                <i class="fas fa-cube logo-icon"></i>
-                <i class="fas fa-drafting-compass logo-icon"></i>
+    <!-- Language Switcher Modal -->
+    <div id="languageModal" class="language-modal">
+        <div class="language-modal-content">
+            <div class="language-modal-header">
+                <h3><i class="fas fa-globe"></i> Choose Language</h3>
+                <span class="language-modal-close">&times;</span>
             </div>
-            <h1>XT 3D Projects</h1>
-            <p>Solutions d'Impression 3D Personnalisées</p>
-            <div class="logo-icons">
-                <i class="fas fa-print logo-icon"></i>
-                <i class="fas fa-tools logo-icon"></i>
+            <div class="language-options">
+                <button class="language-option" data-lang="en">
+                    <span class="flag">🇺🇸</span>
+                    <span>English</span>
+                </button>
+                <button class="language-option" data-lang="fr">
+                    <span class="flag">🇫🇷</span>
+                    <span>Français</span>
+                </button>
+                <button class="language-option" data-lang="ar">
+                    <span class="flag">🇸🇦</span>
+                    <span>العربية</span>
+                </button>
             </div>
         </div>
-        <nav class="nav">
-            <ul>
-                <li><a href="#home"><i class="fas fa-home"></i> Accueil</a></li>
-                <li><a href="#about"><i class="fas fa-info-circle"></i> À Propos</a></li>
-                <li><a href="#projects"><i class="fas fa-project-diagram"></i> Projets</a></li>
-                <li><a href="#prototypes"><i class="fas fa-cubes"></i> Nos Réalisations 3D</a></li>
-                <li><a href="#services"><i class="fas fa-cogs"></i> Services</a></li>
-                <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
-            </ul>
-        </nav>
     </div>
-</header>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-left">
+                <div class="logo">
+                    <div class="logo-icon-wrapper">
+                        <i class="fas fa-cube logo-icon"></i>
+                        <i class="fas fa-drafting-compass logo-icon"></i>
+                        <i class="fas fa-print logo-icon"></i>
+                    </div>
+                    <div class="logo-text">
+                        <h1>XT 3D Projects</h1>
+                        <p data-i18n="tagline">Professional 3D Printing Solutions</p>
+                    </div>
+                </div>
+            </div>
+
+            <nav class="nav">
+                <ul>
+                    <li><a href="#home" data-i18n="nav.home"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="#about" data-i18n="nav.about"><i class="fas fa-info-circle"></i> About</a></li>
+                    <li><a href="#services" data-i18n="nav.services"><i class="fas fa-cogs"></i> Services</a></li>
+                    <li><a href="#projects" data-i18n="nav.projects"><i class="fas fa-project-diagram"></i> Projects</a></li>
+                    <li><a href="#contact" data-i18n="nav.contact"><i class="fas fa-envelope"></i> Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-right">
+                <button class="language-switcher" id="languageBtn">
+                    <span class="current-lang-flag" id="currentLangFlag">🇺🇸</span>
+                    <span class="current-lang-text" id="currentLangText">EN</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <a href="#contact" class="cta-button">
+                    <i class="fas fa-paper-plane"></i>
+                    <span data-i18n="cta.getQuote">Get Quote</span>
+                </a>
+            </div>
+        </div>
+    </header>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
+        <div class="hero-background">
+            <div class="hero-shapes">
+                <div class="shape shape-1"></div>
+                <div class="shape shape-2"></div>
+                <div class="shape shape-3"></div>
+            </div>
+        </div>
         <div class="container">
             <div class="hero-content">
-                <div class="hero-icons">
-                    <i class="fas fa-rocket hero-icon"></i>
-                    <i class="fas fa-lightbulb hero-icon"></i>
-                    <i class="fas fa-magic hero-icon"></i>
+                <div class="hero-badge">
+                    <i class="fas fa-star"></i>
+                    <span data-i18n="hero.badge">Trusted by 500+ Clients</span>
                 </div>
-                <h2>Donnez Vie à Vos Idées</h2>
-                <p>Services professionnels d'impression 3D pour prototypes, pièces personnalisées et projets créatifs</p>
-                <div class="hero-features">
-                    <div class="feature-item">
-                        <i class="fas fa-clock"></i>
-                        <span>Livraison Rapide</span>
+                <h1 class="hero-title" data-i18n="hero.title">
+                    Transform Your Ideas Into
+                    <span class="highlight">Reality</span>
+                </h1>
+                <p class="hero-subtitle" data-i18n="hero.subtitle">
+                    Professional 3D printing services for prototypes, custom parts, and innovative designs across all industries
+                </p>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">500+</div>
+                        <div class="stat-label" data-i18n="hero.stat1">Projects Completed</div>
                     </div>
-                    <div class="feature-item">
-                        <i class="fas fa-star"></i>
-                        <span>Qualité Premium</span>
+                    <div class="stat-item">
+                        <div class="stat-number">98%</div>
+                        <div class="stat-label" data-i18n="hero.stat2">Client Satisfaction</div>
                     </div>
-                    <div class="feature-item">
-                        <i class="fas fa-euro-sign"></i>
-                        <span>Prix Compétitifs</span>
+                    <div class="stat-item">
+                        <div class="stat-number">24h</div>
+                        <div class="stat-label" data-i18n="hero.stat3">Response Time</div>
                     </div>
                 </div>
-                <a href="#projects" class="btn btn-primary">Voir Nos Travaux</a>
+                <div class="hero-actions">
+                    <a href="#projects" class="btn btn-primary btn-large">
+                        <i class="fas fa-eye"></i>
+                        <span data-i18n="hero.viewWork">View Our Work</span>
+                    </a>
+                    <a href="#contact" class="btn btn-secondary btn-large">
+                        <i class="fas fa-paper-plane"></i>
+                        <span data-i18n="hero.startProject">Start Your Project</span>
+                    </a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-3d-preview">
+                    <div class="preview-cube">
+                        <div class="face front"></div>
+                        <div class="face back"></div>
+                        <div class="face right"></div>
+                        <div class="face left"></div>
+                        <div class="face top"></div>
+                        <div class="face bottom"></div>
+                    </div>
+                    <div class="preview-glow"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">
+                    <i class="fas fa-cogs"></i>
+                    <span data-i18n="services.badge">Our Expertise</span>
+                </div>
+                <h2 data-i18n="services.title">Professional 3D Printing Services</h2>
+                <p data-i18n="services.subtitle">From concept to creation, we bring your ideas to life with precision and quality</p>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-drafting-compass"></i>
+                    </div>
+                    <h3 data-i18n="service.design.title">3D Design & Modeling</h3>
+                    <p data-i18n="service.design.desc">Professional CAD design and 3D modeling services for your custom requirements</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> <span data-i18n="service.design.feature1">CAD Design</span></li>
+                        <li><i class="fas fa-check"></i> <span data-i18n="service.design.feature2">3D Modeling</span></li>
+                        <li><i class="fas fa-check"></i> <span data-i18n="service.design.feature3">Prototyping</span></li>
+                    </ul>
+                </div>
+
+                <div class="service-card featured">
+                    <div class="service-icon">
+                        <i class="fas fa-print"></i>
+                    </div>
+                    <h3 data-i18n="service.printing.title">3D Printing</h3>
+                    <p data-i18n="service.printing.desc">High-precision 3D printing with various materials and technologies</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> <span data-i18n="service.printing.feature1">Multiple Materials</span></li>
+                        <li><i class="fas fa-check"></i> <span data-i18n="service.printing.feature2">High Precision</span></li>
+                        <li><i class="fas fa-check"></i> <span data-i18n="service.printing.feature3">Fast Turnaround</span></li>
+                    </ul>
+                    <div class="service-badge">Most Popular</div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3 data-i18n="service.finishing.title">Post-Processing</h3>
+                    <p data-i18n="service.finishing.desc">Professional finishing services including painting, sanding, and assembly</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> <span data-i18n="service.finishing.feature1">Surface Finishing</span></li>
+                        <li><i class="fas fa-check"></i> <span data-i18n="service.finishing.feature2">Painting</span></li>
+                        <li><i class="fas fa-check"></i> <span data-i18n="service.finishing.feature3">Assembly</span></li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3 data-i18n="service.consultation.title">Consultation</h3>
+                    <p data-i18n="service.consultation.desc">Expert advice on materials, design optimization, and project planning</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> <span data-i18n="service.consultation.feature1">Material Selection</span></li>
+                        <li><i class="fas fa-check"></i> <span data-i18n="service.consultation.feature2">Design Review</span></li>
+                        <li><i class="fas fa-check"></i> <span data-i18n="service.consultation.feature3">Cost Estimation</span></li>
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
@@ -71,36 +212,49 @@
     <section id="about" class="about">
         <div class="container">
             <div class="about-content">
-                <div class="about-text">
-                    <h2>À Propos de XT 3D Projects</h2>
-                    <p>
-                        Bienvenue chez <strong>XT 3D Projects</strong>, votre partenaire de confiance pour toutes vos créations 3D.
-                        Nous sommes passionnés par l'innovation et la transformation d'idées créatives en objets tangibles.
-                    </p>
-                    <p>
-                        Notre équipe d'experts utilise les dernières technologies d'impression 3D pour donner vie à vos projets,
-                        qu'il s'agisse de prototypes fonctionnels, de modèles personnalisés ou d'œuvres d'art uniques.
-                        Avec plus de 5 ans d'expérience, nous avons aidé des centaines de clients à réaliser leurs visions.
-                    </p>
+                <div class="about-visual">
                     <div class="about-stats">
-                        <div class="stat">
-                            <h3>500+</h3>
-                            <p>Projets Réalisés</p>
+                        <div class="stat-circle">
+                            <div class="stat-number">500+</div>
+                            <div class="stat-label" data-i18n="about.stat1">Projects</div>
                         </div>
-                        <div class="stat">
-                            <h3>98%</h3>
-                            <p>Satisfaction Client</p>
+                        <div class="stat-circle">
+                            <div class="stat-number">98%</div>
+                            <div class="stat-label" data-i18n="about.stat2">Satisfaction</div>
                         </div>
-                        <div class="stat">
-                            <h3>24h</h3>
-                            <p>Délai de Réponse</p>
+                        <div class="stat-circle">
+                            <div class="stat-number">5+</div>
+                            <div class="stat-label" data-i18n="about.stat3">Years</div>
                         </div>
                     </div>
                 </div>
-                <div class="about-image">
-                    <div class="image-placeholder">
-                        <i class="fas fa-rocket"></i>
-                        <p>Innovation 3D</p>
+                <div class="about-text">
+                    <div class="section-header">
+                        <h2 data-i18n="about.title">About XT 3D Projects</h2>
+                        <p data-i18n="about.subtitle">Transforming ideas into tangible reality through innovative 3D printing technology</p>
+                    </div>
+                    <p data-i18n="about.desc1">
+                        Welcome to <strong>XT 3D Projects</strong>, your premier destination for professional 3D printing services.
+                        We specialize in transforming creative concepts into physical reality using cutting-edge additive manufacturing technology.
+                    </p>
+                    <p data-i18n="about.desc2">
+                        With over 5 years of experience and a portfolio of 500+ successful projects, we serve clients across various industries
+                        including automotive, medical, architecture, and industrial manufacturing. Our commitment to quality, precision, and innovation
+                        sets us apart in the 3D printing industry.
+                    </p>
+                    <div class="about-highlights">
+                        <div class="highlight-item">
+                            <i class="fas fa-award"></i>
+                            <span data-i18n="about.highlight1">Award-Winning Quality</span>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="fas fa-clock"></i>
+                            <span data-i18n="about.highlight2">24/7 Support</span>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="fas fa-globe"></i>
+                            <span data-i18n="about.highlight3">Global Reach</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -111,334 +265,160 @@
     <section id="projects" class="projects">
         <div class="container">
             <div class="section-header">
-                <i class="fas fa-project-diagram section-icon"></i>
-                <h2>Projets en Vedette</h2>
-                <i class="fas fa-award section-icon"></i>
+                <div class="section-badge">
+                    <i class="fas fa-project-diagram"></i>
+                    <span data-i18n="projects.badge">Our Portfolio</span>
+                </div>
+                <h2 data-i18n="projects.title">Featured Projects</h2>
+                <p data-i18n="projects.subtitle">Explore our diverse range of 3D printing applications across different industries</p>
             </div>
+
             <div class="projects-grid">
-                <!-- Project 1 -->
                 <div class="project-card">
                     <div class="project-image">
-                        <div class="project-icon-overlay">
-                            <i class="fas fa-mobile-alt"></i>
+                        <img src="https://images.unsplash.com/photo-1581092921461-eab62e97a780?w=400&h=300&fit=crop" alt="Custom Phone Cases">
+                        <div class="project-overlay">
+                            <div class="project-category">
+                                <i class="fas fa-mobile-alt"></i>
+                                <span data-i18n="project.category.mobile">Mobile</span>
+                            </div>
                         </div>
-                        <img src="images/placeholder-project1.jpg" alt="Coque de Téléphone Personnalisée" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZGRkIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzk5OSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPkltYWdlIFBsYWNlaG9sZGVyPC90ZXh0Pjwvc3ZnPg=='">
                     </div>
-                    <div class="project-info">
-                        <div class="project-category">
-                            <i class="fas fa-mobile-alt"></i>
-                            <span>Mobile</span>
+                    <div class="project-content">
+                        <h3 data-i18n="project.mobile.title">Custom Phone Cases</h3>
+                        <p data-i18n="project.mobile.desc">Personalized phone cases with unique designs and perfect fit</p>
+                        <div class="project-meta">
+                            <span class="project-price">€15.99</span>
+                            <button class="btn btn-primary btn-small">
+                                <i class="fas fa-shopping-cart"></i>
+                                <span data-i18n="project.order">Order Now</span>
+                            </button>
                         </div>
-                        <h3>Coques de Téléphone Personnalisées</h3>
-                        <p>Coques de téléphone personnalisées avec designs uniques et ajustement parfait</p>
-                        <div class="project-price">
-                            <i class="fas fa-euro-sign"></i>
-                            15.99€
-                        </div>
-                        <button class="btn btn-secondary order-btn" data-project="Coques de Téléphone Personnalisées">
-                            <i class="fas fa-shopping-cart"></i>
-                            Commander Maintenant
-                        </button>
                     </div>
                 </div>
 
-                <!-- Project 2 -->
                 <div class="project-card">
                     <div class="project-image">
-                        <div class="project-icon-overlay">
-                            <i class="fas fa-chess-knight"></i>
+                        <img src="https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?w=400&h=300&fit=crop" alt="Miniature Models">
+                        <div class="project-overlay">
+                            <div class="project-category">
+                                <i class="fas fa-chess-knight"></i>
+                                <span data-i18n="project.category.collection">Collection</span>
+                            </div>
                         </div>
-                        <img src="images/placeholder-project2.jpg" alt="Modèles Miniatures" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZGRkIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzk5OSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPkltYWdlIFBsYWNlaG9sZGVyPC90ZXh0Pjwvc3ZnPg=='">
                     </div>
-                    <div class="project-info">
-                        <div class="project-category">
-                            <i class="fas fa-chess-knight"></i>
-                            <span>Collection</span>
+                    <div class="project-content">
+                        <h3 data-i18n="project.miniature.title">Miniature Models</h3>
+                        <p data-i18n="project.miniature.desc">Detailed scale models for collectors and enthusiasts</p>
+                        <div class="project-meta">
+                            <span class="project-price">€25.99</span>
+                            <button class="btn btn-primary btn-small">
+                                <i class="fas fa-shopping-cart"></i>
+                                <span data-i18n="project.order">Order Now</span>
+                            </button>
                         </div>
-                        <h3>Modèles Miniatures</h3>
-                        <p>Modèles à échelle détaillés pour collectionneurs et passionnés</p>
-                        <div class="project-price">
-                            <i class="fas fa-euro-sign"></i>
-                            25.99€
-                        </div>
-                        <button class="btn btn-secondary order-btn" data-project="Modèles Miniatures">
-                            <i class="fas fa-shopping-cart"></i>
-                            Commander Maintenant
-                        </button>
                     </div>
                 </div>
 
-                <!-- Project 3 -->
-                <div class="project-card">
+                <div class="project-card featured">
                     <div class="project-image">
-                        <div class="project-icon-overlay">
-                            <i class="fas fa-flask"></i>
+                        <img src="https://images.unsplash.com/photo-1582719471135-c3967ffb1c42?w=400&h=300&fit=crop" alt="Functional Prototypes">
+                        <div class="project-overlay">
+                            <div class="project-category">
+                                <i class="fas fa-flask"></i>
+                                <span data-i18n="project.category.prototype">Prototype</span>
+                            </div>
                         </div>
-                        <img src="images/prototype-case-1.svg" alt="Prototypes Fonctionnels" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZGRkIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzk5OSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPkltYWdlIFBsYWNlaG9sZGVyPC90ZXh0Pjwvc3ZnPg=='">
                     </div>
-                    <div class="project-info">
-                        <div class="project-category">
-                            <i class="fas fa-flask"></i>
-                            <span>Innovation</span>
+                    <div class="project-content">
+                        <h3 data-i18n="project.prototype.title">Functional Prototypes</h3>
+                        <p data-i18n="project.prototype.desc">Rapid prototyping for product development and testing</p>
+                        <div class="project-meta">
+                            <span class="project-price">€49.99</span>
+                            <button class="btn btn-primary btn-small">
+                                <i class="fas fa-shopping-cart"></i>
+                                <span data-i18n="project.order">Order Now</span>
+                            </button>
                         </div>
-                        <h3>Prototypes Fonctionnels</h3>
-                        <p>Prototypage rapide pour le développement et les tests de produits</p>
-                        <div class="project-price">
-                            <i class="fas fa-euro-sign"></i>
-                            49.99€
-                        </div>
-                        <button class="btn btn-secondary order-btn" data-project="Prototypes Fonctionnels">
-                            <i class="fas fa-shopping-cart"></i>
-                            Commander Maintenant
-                        </button>
                     </div>
+                    <div class="project-badge">Popular</div>
                 </div>
+            </div>
+
+            <div class="projects-cta">
+                <h3 data-i18n="projects.cta.title">Ready to Start Your Project?</h3>
+                <p data-i18n="projects.cta.subtitle">Join hundreds of satisfied clients who trust us with their 3D printing needs</p>
+                <a href="#contact" class="btn btn-primary btn-large">
+                    <i class="fas fa-paper-plane"></i>
+                    <span data-i18n="projects.cta.button">Get Started Today</span>
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- 3D Models Showcase Section -->
-    <section id="prototypes" class="prototypes">
+    <!-- Industries Section -->
+    <section class="industries">
         <div class="container">
             <div class="section-header">
-                <i class="fas fa-cubes section-icon"></i>
-                <h2>Nos Réalisations 3D</h2>
-                <i class="fas fa-award section-icon"></i>
-            </div>
-            <p class="section-description">Découvrez notre expertise à travers différents domaines et applications de l'impression 3D</p>
-
-            <!-- Video Showcase -->
-            <div class="video-showcase">
-                <h3><i class="fas fa-video"></i> Vidéos Démonstratives</h3>
-                <div class="video-grid">
-                    <div class="video-item">
-                        <div class="video-wrapper">
-                            <iframe width="100%" height="200" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
-                        </div>
-                        <div class="video-info">
-                            <h4>Impression 3D en Action</h4>
-                            <p>Découvrez le processus complet d'impression 3D</p>
-                        </div>
-                    </div>
-                    <div class="video-item">
-                        <div class="video-wrapper">
-                            <iframe width="100%" height="200" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
-                        </div>
-                        <div class="video-info">
-                            <h4>Prototypes Fonctionnels</h4>
-                            <p>De l'idée au produit fini</p>
-                        </div>
-                    </div>
-                </div>
+                <h2 data-i18n="industries.title">Industries We Serve</h2>
+                <p data-i18n="industries.subtitle">Specialized 3D printing solutions for diverse industry applications</p>
             </div>
 
-            <!-- Categories Showcase -->
-            <div class="categories-showcase">
-                <!-- Automotive Category -->
-                <div class="category-section">
-                    <h3><i class="fas fa-car"></i> Automobile & Transport</h3>
-                    <div class="models-grid">
-                        <a href="automotive.html" class="model-card-link">
-                            <div class="model-card">
-                                <div class="model-image">
-                                    <img src="https://images.unsplash.com/photo-1581092921461-eab62e97a780?w=400&h=300&fit=crop" alt="Pièces automobiles 3D">
-                                    <div class="model-overlay">
-                                        <h4>Pièces Automobiles</h4>
-                                        <p>Prototypes et pièces de rechange</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="automotive.html" class="model-card-link">
-                            <div class="model-card">
-                                <div class="model-image">
-                                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop" alt="Modèles échelle automobile">
-                                    <div class="model-overlay">
-                                        <h4>Modèles à l'Échelle</h4>
-                                        <p>Véhicules miniatures détaillés</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
+            <div class="industries-grid">
+                <a href="automotive.html" class="industry-card">
+                    <div class="industry-icon">
+                        <i class="fas fa-car"></i>
                     </div>
-                </div>
+                    <h3 data-i18n="industry.automotive.title">Automotive</h3>
+                    <p data-i18n="industry.automotive.desc">Prototypes, parts, and scale models for automotive industry</p>
+                    <div class="industry-arrow">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </a>
 
-                <!-- Medical Category -->
-                <div class="category-section">
-                    <h3><i class="fas fa-heartbeat"></i> Médical & Santé</h3>
-                    <div class="models-grid">
-                        <a href="medical.html" class="model-card-link">
-                            <div class="model-card">
-                                <div class="model-image">
-                                    <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400&h=300&fit=crop" alt="Prothèses médicales">
-                                    <div class="model-overlay">
-                                        <h4>Prothèses & Orthèses</h4>
-                                        <p>Aides médicales personnalisées</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="medical.html" class="model-card-link">
-                            <div class="model-card">
-                                <div class="model-image">
-                                    <img src="https://images.unsplash.com/photo-1576671081837-49000212a370?w=400&h=300&fit=crop" alt="Modèles anatomiques">
-                                    <div class="model-overlay">
-                                        <h4>Modèles Anatomiques</h4>
-                                        <p>Éducation et formation médicale</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
+                <a href="medical.html" class="industry-card">
+                    <div class="industry-icon">
+                        <i class="fas fa-heartbeat"></i>
                     </div>
-                </div>
+                    <h3 data-i18n="industry.medical.title">Medical</h3>
+                    <p data-i18n="industry.medical.desc">Custom prosthetics, anatomical models, and medical devices</p>
+                    <div class="industry-arrow">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </a>
 
-                <!-- Architecture Category -->
-                <div class="category-section">
-                    <h3><i class="fas fa-building"></i> Architecture & Construction</h3>
-                    <div class="models-grid">
-                        <a href="architecture.html" class="model-card-link">
-                            <div class="model-card">
-                                <div class="model-image">
-                                    <img src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=400&h=300&fit=crop" alt="Maquettes architecturales">
-                                    <div class="model-overlay">
-                                        <h4>Maquettes Architecturales</h4>
-                                        <p>Visualisation de projets immobiliers</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="architecture.html" class="model-card-link">
-                            <div class="model-card">
-                                <div class="model-image">
-                                    <img src="https://images.unsplash.com/photo-1503387837-b154d5074bd2?w=400&h=300&fit=crop" alt="Éléments décoratifs">
-                                    <div class="model-overlay">
-                                        <h4>Éléments Décoratifs</h4>
-                                        <p>Ornements et détails architecturaux</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
+                <a href="architecture.html" class="industry-card">
+                    <div class="industry-icon">
+                        <i class="fas fa-building"></i>
                     </div>
-                </div>
+                    <h3 data-i18n="industry.architecture.title">Architecture</h3>
+                    <p data-i18n="industry.architecture.desc">Architectural models, maquettes, and detailed structures</p>
+                    <div class="industry-arrow">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </a>
 
-                <!-- Art & Design Category -->
-                <div class="category-section">
-                    <h3><i class="fas fa-palette"></i> Art & Design</h3>
-                    <div class="models-grid">
-                        <a href="art-design.html" class="model-card-link">
-                            <div class="model-card">
-                                <div class="model-image">
-                                    <img src="https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400&h=300&fit=crop" alt="Sculptures artistiques">
-                                    <div class="model-overlay">
-                                        <h4>Sculptures Artistiques</h4>
-                                        <p>Créations artistiques uniques</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="art-design.html" class="model-card-link">
-                            <div class="model-card">
-                                <div class="model-image">
-                                    <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop" alt="Design de produits">
-                                    <div class="model-overlay">
-                                        <h4>Design de Produits</h4>
-                                        <p>Prototypes de produits innovants</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
+                <a href="industrial.html" class="industry-card">
+                    <div class="industry-icon">
+                        <i class="fas fa-cogs"></i>
                     </div>
-                </div>
+                    <h3 data-i18n="industry.industrial.title">Industrial</h3>
+                    <p data-i18n="industry.industrial.desc">Manufacturing aids, jigs, fixtures, and custom tooling</p>
+                    <div class="industry-arrow">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </a>
 
-                <!-- Industrial Category -->
-                <div class="category-section">
-                    <h3><i class="fas fa-cogs"></i> Industriel & Ingénierie</h3>
-                    <div class="models-grid">
-                        <a href="industrial.html" class="model-card-link">
-                            <div class="model-card">
-                                <div class="model-image">
-                                    <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=400&h=300&fit=crop" alt="Pièces mécaniques">
-                                    <div class="model-overlay">
-                                        <h4>Pièces Mécaniques</h4>
-                                        <p>Composants industriels précis</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="industrial.html" class="model-card-link">
-                            <div class="model-card">
-                                <div class="model-image">
-                                    <img src="https://images.unsplash.com/photo-1530223408427-0e5c9e3c3e2e?w=400&h=300&fit=crop" alt="Outils personnalisés">
-                                    <div class="model-overlay">
-                                        <h4>Outils Personnalisés</h4>
-                                        <p>Gadgets et outils sur mesure</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
+                <a href="art-design.html" class="industry-card">
+                    <div class="industry-icon">
+                        <i class="fas fa-palette"></i>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services" class="services">
-        <div class="container">
-            <div class="section-header">
-                <i class="fas fa-cogs section-icon"></i>
-                <h2>Nos Services</h2>
-                <i class="fas fa-wrench section-icon"></i>
-            </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-drafting-compass"></i>
+                    <h3 data-i18n="industry.art.title">Art & Design</h3>
+                    <p data-i18n="industry.art.desc">Sculptures, artistic pieces, and creative design objects</p>
+                    <div class="industry-arrow">
+                        <i class="fas fa-arrow-right"></i>
                     </div>
-                    <h3>Conception 3D</h3>
-                    <p>Services de modélisation et conception 3D personnalisés</p>
-                    <div class="service-features">
-                        <span><i class="fas fa-check"></i> Modélisation 3D</span>
-                        <span><i class="fas fa-check"></i> Design personnalisé</span>
-                        <span><i class="fas fa-check"></i> Optimisation</span>
-                    </div>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-print"></i>
-                    </div>
-                    <h3>Impression</h3>
-                    <p>Impression 3D de haute qualité avec divers matériaux</p>
-                    <div class="service-features">
-                        <span><i class="fas fa-check"></i> Haute précision</span>
-                        <span><i class="fas fa-check"></i> Multi-matériaux</span>
-                        <span><i class="fas fa-check"></i> Couleurs</span>
-                    </div>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-paint-brush"></i>
-                    </div>
-                    <h3>Post-Traitement</h3>
-                    <p>Services de ponçage, peinture et finition</p>
-                    <div class="service-features">
-                        <span><i class="fas fa-check"></i> Ponçage</span>
-                        <span><i class="fas fa-check"></i> Peinture</span>
-                        <span><i class="fas fa-check"></i> Finition</span>
-                    </div>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-user-tie"></i>
-                    </div>
-                    <h3>Consultation</h3>
-                    <p>Conseils d'experts sur les matériaux et techniques</p>
-                    <div class="service-features">
-                        <span><i class="fas fa-check"></i> Expertise</span>
-                        <span><i class="fas fa-check"></i> Conseils</span>
-                        <span><i class="fas fa-check"></i> Support</span>
-                    </div>
-                </div>
+                </a>
             </div>
         </div>
     </section>
@@ -446,65 +426,102 @@
     <!-- Contact Section -->
     <section id="contact" class="contact">
         <div class="container">
-            <h2>Passez Votre Commande</h2>
             <div class="contact-content">
                 <div class="contact-info">
-                    <h3>Contactez-Nous</h3>
-                    <p>Prêt à donner vie à vos idées ? Envoyez-nous vos exigences !</p>
-                    <div class="contact-details">
-                        <p><strong>Email:</strong> <a href="mailto:samxt37@gmail.com">samxt37@gmail.com</a></p>
-                        <p><strong>Téléphone:</strong> <a href="tel:0549827390">0549827390</a></p>
+                    <div class="section-header">
+                        <h2 data-i18n="contact.title">Get In Touch</h2>
+                        <p data-i18n="contact.subtitle">Ready to bring your ideas to life? Let's discuss your project</p>
                     </div>
-                    <div class="social-media">
-                        <h4>Suivez-nous</h4>
+
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4 data-i18n="contact.email.title">Email</h4>
+                                <a href="mailto:samxt37@gmail.com">samxt37@gmail.com</a>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4 data-i18n="contact.phone.title">Phone</h4>
+                                <a href="tel:0549827390">0549827390</a>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4 data-i18n="contact.hours.title">Response Time</h4>
+                                <span data-i18n="contact.hours.value">Within 24 hours</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="social-links">
+                        <h4 data-i18n="contact.social.title">Follow Us</h4>
                         <div class="social-icons">
-                            <a href="https://instagram.com/imsamxt" target="_blank" class="social-link instagram">
+                            <a href="https://instagram.com/imsamxt" class="social-link instagram" target="_blank">
                                 <i class="fab fa-instagram"></i>
-                                <span>@imsamxt</span>
                             </a>
-                            <a href="https://tiktok.com/@imsamxt" target="_blank" class="social-link tiktok">
+                            <a href="https://tiktok.com/@imsamxt" class="social-link tiktok" target="_blank">
                                 <i class="fab fa-tiktok"></i>
-                                <span>TikTok</span>
                             </a>
-                            <a href="https://facebook.com/imsamxt" target="_blank" class="social-link facebook">
+                            <a href="https://facebook.com/imsamxt" class="social-link facebook" target="_blank">
                                 <i class="fab fa-facebook"></i>
-                                <span>Facebook</span>
                             </a>
                         </div>
-                        <a href="https://instagram.com/imsamxt" target="_blank" class="btn btn-primary instagram-btn">
-                            <i class="fab fa-instagram"></i> Voir le Profil Instagram
-                        </a>
                     </div>
                 </div>
-                <form class="contact-form" id="orderForm">
-                    <div class="form-group">
-                        <label for="name">Nom *</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email *</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="project">Type de Projet</label>
-                        <select id="project" name="project">
-                            <option value="">Sélectionnez un projet</option>
-                            <option value="Coques de Téléphone Personnalisées">Coques de Téléphone Personnalisées</option>
-                            <option value="Modèles Miniatures">Modèles Miniatures</option>
-                            <option value="Prototypes Fonctionnels">Prototypes Fonctionnels</option>
-                            <option value="Autre">Autre</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="description">Description *</label>
-                        <textarea id="description" name="description" rows="4" placeholder="Décrivez vos exigences de projet, dimensions, matériaux, etc." required></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="image">Télécharger une Image de Référence</label>
-                        <input type="file" id="image" name="image" accept="image/*">
-                    </div>
-                    <button type="submit" class="btn btn-primary">Envoyer la Commande</button>
-                </form>
+
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name" data-i18n="form.name">Full Name *</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email" data-i18n="form.email">Email Address *</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="projectType" data-i18n="form.projectType">Project Type</label>
+                            <select id="projectType" name="projectType">
+                                <option value="" data-i18n="form.selectOption">Select a project type</option>
+                                <option value="prototype" data-i18n="form.prototype">Functional Prototype</option>
+                                <option value="model" data-i18n="form.model">Scale Model</option>
+                                <option value="custom" data-i18n="form.custom">Custom Part</option>
+                                <option value="other" data-i18n="form.other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message" data-i18n="form.message">Project Description *</label>
+                            <textarea id="message" name="message" rows="5" placeholder="Describe your project requirements, dimensions, materials, etc." required></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="file" data-i18n="form.file">Reference File (Optional)</label>
+                            <input type="file" id="file" name="file" accept=".stl,.obj,.3ds,.iges,.step,image/*">
+                            <small data-i18n="form.fileHelp">Upload STL, OBJ, or reference images</small>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-large">
+                            <i class="fas fa-paper-plane"></i>
+                            <span data-i18n="form.submit">Send Message</span>
+                        </button>
+                    </form>
+                </div>
             </div>
         </div>
     </section>
@@ -515,81 +532,92 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <div class="footer-logo">
-                        <i class="fas fa-cube footer-icon"></i>
-                        <h3>XT 3D Projects</h3>
-                        <i class="fas fa-rocket footer-icon"></i>
+                        <div class="footer-logo-icons">
+                            <i class="fas fa-cube"></i>
+                            <i class="fas fa-drafting-compass"></i>
+                            <i class="fas fa-print"></i>
+                        </div>
+                        <div class="footer-text">
+                            <h3>XT 3D Projects</h3>
+                            <p data-i18n="footer.tagline">Bringing ideas to life through 3D innovation</p>
+                        </div>
                     </div>
-                    <p>Donner vie à vos rêves numériques</p>
+                    <p data-i18n="footer.description">Professional 3D printing services with precision, quality, and innovation at the forefront of everything we do.</p>
+                </div>
+
+                <div class="footer-section">
+                    <h4 data-i18n="footer.quickLinks">Quick Links</h4>
+                    <ul>
+                        <li><a href="#home" data-i18n="nav.home">Home</a></li>
+                        <li><a href="#about" data-i18n="nav.about">About</a></li>
+                        <li><a href="#services" data-i18n="nav.services">Services</a></li>
+                        <li><a href="#projects" data-i18n="nav.projects">Projects</a></li>
+                        <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4 data-i18n="footer.services">Our Services</h4>
+                    <ul>
+                        <li><a href="#services" data-i18n="service.design.title">3D Design & Modeling</a></li>
+                        <li><a href="#services" data-i18n="service.printing.title">3D Printing</a></li>
+                        <li><a href="#services" data-i18n="service.finishing.title">Post-Processing</a></li>
+                        <li><a href="#services" data-i18n="service.consultation.title">Consultation</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4 data-i18n="footer.contact">Contact Info</h4>
+                    <div class="footer-contact">
+                        <p><i class="fas fa-envelope"></i> <a href="mailto:samxt37@gmail.com">samxt37@gmail.com</a></p>
+                        <p><i class="fas fa-phone"></i> <a href="tel:0549827390">0549827390</a></p>
+                        <p><i class="fas fa-clock"></i> <span data-i18n="contact.hours.value">24/7 Available</span></p>
+                    </div>
                     <div class="footer-social">
-                        <a href="https://instagram.com/imsamxt" target="_blank" class="footer-social-link">
+                        <a href="https://instagram.com/imsamxt" target="_blank" class="social-link">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="https://tiktok.com/@imsamxt" target="_blank" class="footer-social-link">
+                        <a href="https://tiktok.com/@imsamxt" target="_blank" class="social-link">
                             <i class="fab fa-tiktok"></i>
                         </a>
-                        <a href="https://facebook.com/imsamxt" target="_blank" class="footer-social-link">
+                        <a href="https://facebook.com/imsamxt" target="_blank" class="social-link">
                             <i class="fab fa-facebook"></i>
                         </a>
                     </div>
                 </div>
-                <div class="footer-section">
-                    <h4><i class="fas fa-link"></i> Liens Rapides</h4>
-                    <ul>
-                        <li><a href="#home"><i class="fas fa-home"></i> Accueil</a></li>
-                        <li><a href="#about"><i class="fas fa-info-circle"></i> À Propos</a></li>
-                        <li><a href="#projects"><i class="fas fa-project-diagram"></i> Projets</a></li>
-                        <li><a href="#prototypes"><i class="fas fa-cubes"></i> Nos Réalisations 3D</a></li>
-                        <li><a href="#services"><i class="fas fa-cogs"></i> Services</a></li>
-                        <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4><i class="fas fa-address-book"></i> Contact</h4>
-                    <p><i class="fas fa-envelope"></i> <a href="mailto:samxt37@gmail.com">samxt37@gmail.com</a></p>
-                    <p><i class="fas fa-phone"></i> <a href="tel:0549827390">0549827390</a></p>
-                    <p><i class="fas fa-map-marker-alt"></i> Disponible 24/7</p>
-                </div>
             </div>
+
             <div class="footer-bottom">
-                <div class="footer-decoration">
-                    <i class="fas fa-cube"></i>
-                    <i class="fas fa-drafting-compass"></i>
-                    <i class="fas fa-print"></i>
+                <div class="footer-copyright">
+                    <p>&copy; 2024 <strong>XT 3D Projects</strong>. <span data-i18n="footer.rights">All rights reserved</span>.</p>
+                    <p><i class="fas fa-heart text-red"></i> <span data-i18n="footer.madeWith">Made with passion for 3D innovation</span></p>
                 </div>
-                <p>&copy; 2024 XT 3D Projects. Tous droits réservés.</p>
-                <p><i class="fas fa-heart"></i> Créé avec passion pour l'innovation 3D</p>
+                <div class="footer-language">
+                    <button class="language-selector" id="footerLanguageBtn">
+                        <span class="flag" id="footerLangFlag">🇺🇸</span>
+                        <span id="footerLangText">EN</span>
+                    </button>
+                </div>
             </div>
         </div>
     </footer>
 
-    <!-- Modal for Order Confirmation -->
-    <div id="orderModal" class="modal">
+    <!-- Success Modal -->
+    <div id="successModal" class="modal">
         <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>Commande Envoyée !</h2>
-            <p>Merci pour votre commande. Nous vous contacterons dans les 24 heures.</p>
-            <button class="btn btn-primary" onclick="closeModal()">Fermer</button>
+            <div class="modal-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h3 data-i18n="modal.success.title">Message Sent Successfully!</h3>
+            <p data-i18n="modal.success.message">Thank you for your message. We'll get back to you within 24 hours.</p>
+            <button class="btn btn-primary" onclick="closeModal()">
+                <span data-i18n="modal.close">Close</span>
+            </button>
         </div>
     </div>
 
-    <!-- Floating 3D Elements -->
-    <div class="floating-elements">
-        <div class="floating-3d floating-3d-1">
-            <i class="fas fa-cube"></i>
-        </div>
-        <div class="floating-3d floating-3d-2">
-            <i class="fas fa-drafting-compass"></i>
-        </div>
-        <div class="floating-3d floating-3d-3">
-            <i class="fas fa-print"></i>
-        </div>
-        <div class="floating-3d floating-3d-4">
-            <i class="fas fa-tools"></i>
-        </div>
-    </div>
-
-    <!-- EmailJS SDK -->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <!-- Scripts -->
+    <script src="js/language.js"></script>
     <script src="js/script.js"></script>
 </body>
 </html>
